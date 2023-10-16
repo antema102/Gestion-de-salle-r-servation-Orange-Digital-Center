@@ -1,0 +1,9 @@
+.custom-btn.ajouter{
+    background-color:  hsl(24, 99%, 59%); 
+    color: white;
+  }
+
+  .custom-btn.annuler{
+    background-color: #000000; 
+    color: white;
+  }

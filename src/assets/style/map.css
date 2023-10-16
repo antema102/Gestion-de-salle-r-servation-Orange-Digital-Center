@@ -1,0 +1,229 @@
+.cls-1 {
+    font-size: 17.1px;
+  }
+
+  .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+    fill: #1d1d1b;
+    font-family:'arial';
+  }
+
+  .cls-2 {
+    font-size: 16.28px;
+  }
+
+  .cls-3 {
+    font-size: 16.17px;
+  }
+
+  .cls-11 {
+    letter-spacing: .02em;
+  }
+
+  .cls-12 {
+    letter-spacing: 0em;
+  }
+
+  .cls-4 {
+    font-size: 21px;
+  }
+
+  .cls-13 {
+    letter-spacing: 0em;
+  }
+
+  .cls-14 {
+    letter-spacing: -.07em;
+  }
+
+  .cls-15 {
+    letter-spacing: 0em;
+  }
+
+  .cls-16 {
+    letter-spacing: 0em;
+  }
+
+  .cls-17 {
+    letter-spacing: 0em;
+  }
+
+  .cls-18 {
+    letter-spacing: 0em;
+  }
+
+  .cls-19 {
+    letter-spacing: 0em;
+  }
+
+  .cls-20 {
+    letter-spacing: -.04em;
+  }
+
+  .cls-21 {
+    letter-spacing: 0em;
+  }
+
+  .cls-22 {
+    letter-spacing: 0em;
+  }
+
+  .cls-23 {
+    letter-spacing: 0em;
+  }
+
+  .cls-24 {
+    letter-spacing: .01em;
+  }
+
+  .cls-25 {
+    letter-spacing: 0em;
+  }
+
+  .cls-5 {
+    font-size: 19.52px;
+  }
+
+  .cls-6 {
+    font-size: 18px;
+  }
+
+  .cls-26 {
+    letter-spacing: -.02em;
+  }
+
+  .cls-27 {
+    letter-spacing: -.01em;
+  }
+
+  .cls-28 {
+    letter-spacing: 0em;
+  }
+
+  .cls-7 {
+    font-size: 17.1px;
+  }
+
+  .cls-8 {
+    font-size: 14px;
+  }
+
+  .cls-29 {
+    letter-spacing: 0em;
+  }
+
+  .cls-30 {
+    letter-spacing: 0em;
+  }
+
+  .cls-31 {
+    letter-spacing: 0em;
+  }
+
+  .cls-32 {
+    letter-spacing: 0em;
+  }
+
+  .cls-33 {
+    opacity: .53;
+  }
+
+  .cls-33, .cls-34, .cls-35 {
+    stroke: #858585;
+    stroke-miterlimit: 10;
+  }
+
+  .cls-33, .cls-35 {
+    fill: #c6c6c6;
+  }
+
+  .cls-36 {
+    letter-spacing: 0em;
+  }
+
+  .cls-37 {
+    letter-spacing: 0em;
+  }
+
+  .cls-38 {
+    letter-spacing: 0em;
+  }
+
+  .cls-39 {
+    letter-spacing: .02em;
+  }
+
+  .cls-40 {
+    letter-spacing: .01em;
+  }
+
+  .cls-41 {
+    letter-spacing: 0em;
+  }
+
+  .cls-34 {
+    fill: #fff;
+  }
+
+  .cls-9 {
+    font-size: 18.05px;
+  }
+
+  .cls-42 {
+    letter-spacing: 0em;
+  }
+
+  .cls-43 {
+    letter-spacing: -.01em;
+  }
+
+  .cls-35 {
+    opacity: .51;
+  }
+
+  .cls-44 {
+    letter-spacing: 0em;
+  }
+
+  .cls-45 {
+    letter-spacing: 0em;
+  }
+
+  .cls-46 {
+    letter-spacing: 0em;
+  }
+
+  .cls-10 {
+    font-size: 17.97px;
+  }
+
+  .cls-47 {
+    letter-spacing: .02em;
+  }
+  .container{
+    width: 530px;
+  }
+  .cls-34:hover{
+    fill: hsl(24, 99%, 59%);
+    cursor: pointer;
+  }
+
+ .salle-occupee{
+  fill:red;
+  stroke: #858585;
+  stroke-miterlimit: 10;
+ }
+ .salle-occupee:hover{
+  fill:hsl(24, 99%, 59%);
+ }
+ .salle-libre{
+  fill:green;
+  stroke: black;
+  stroke-miterlimit: 50;
+ }
+
+ .salle-libre:hover{
+  fill:hsl(24, 99%, 59%);
+  stroke: black;
+  stroke-miterlimit: 50;
+ 
+ }

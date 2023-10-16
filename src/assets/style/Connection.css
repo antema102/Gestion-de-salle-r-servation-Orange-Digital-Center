@@ -1,0 +1,33 @@
+
+/* Connection.css */
+.background-gray {
+    background-color: rgb(0, 0, 0); /* Remplacez la couleur par celle de votre choix */
+    min-height: 100vh; /* Assurez-vous que l'arrière-plan s'étend sur toute la hauteur de la vue */
+  }
+  
+.test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Assurez-vous que le contenu est centré verticalement sur la page */
+  }
+.container_test {
+    box-shadow: 0px 0px 1px 1px #000000; /* Les valeurs d'ombre que vous désirez */
+    border: 1px solid #595959; 
+    padding: 25px;
+    background-color: white;
+}
+
+.ligne {
+    border-top: 1px solid gray; /* Crée une ligne horizontale de 1 pixel d'épaisseur */
+    margin: 20px 0; /* Marge au-dessus et en dessous de la ligne */
+}
+
+
+.custom-btn.connection{
+    background-color: black;
+    color: white;
+} 
+.custom-btn.connection:hover{
+    color: orange;
+} 
