@@ -32,9 +32,5 @@ Ce frontend communique avec le backend de gestion de salles, assurez-vous de lan
 ## Auteurs
 
 - Antema Nirina- [AntemaNirina](antema103@gmail.com)
-- Francky - [Francky](franckykezya05@gmail.com )
 
-## Contribution
-
-Les contributions à ce projet sont les bienvenues. Assurez-vous de discuter des changements que vous souhaitez apporter en créant une "issue" ou en ouvrant une "pull request".
 
