@@ -1,4 +1,3 @@
-Bien sûr, voici un exemple de README pour un frontend lié au backend de gestion de salles à Orange Digital Center Madagascar :
 
 # Frontend de Gestion de Salles - Orange Digital Center Madagascar
 
