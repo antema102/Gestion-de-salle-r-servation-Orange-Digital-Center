@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import '../assets/style/map.css';
 import { Tooltip, PopoverHeader, PopoverBody } from 'reactstrap';
 import ClipLoader from "react-spinners/ClipLoader";
-
-
 const Map = () => {
     const [salle, setSalle] = useState([]);
     const [hoveredSalleId, setHoveredSalleId] = useState(null);
@@ -80,8 +78,6 @@ const Map = () => {
             <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535.08 679">
                 {
                     salle.map((salles) => {
-
-
                         const isSalleReserved = reservation.some((reservation) => {
                             const reservationDates = new Date(reservation.created_date); // Assurez-vous que la clé est correcte
                             const now = new Date();
@@ -175,7 +171,6 @@ const Map = () => {
                                                 </div>
                                             )}
                                         </PopoverBody>
-
                                     </Tooltip>
                                 )}
                             </g>

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material"; 
-import { useCustomNavigate  } from '../navigate/navigate'; // Assurez-vous de spécifier le chemin correct vers votre fichier navigation.js
+import { useCustomNavigate  } from '../navigate/navigate';
 import { useEffect } from 'react';
 
 
@@ -17,7 +17,7 @@ const AppLayout = () => {
     if(!token  || isTokenExpired(token)){
       navigate('/connection')
     }
-  },[navigate])
+  },[])
   
   const isTokenExpired = (token) => {
     try {

@@ -45,6 +45,14 @@ const AlertCnS= () =>{
     )
 }
 
-export {AlertError,AlertSuccess,AlertCn,AlertCnS};
+const AlertCnss= () =>{
+    return (
+    <Alert  color="danger">
+    Vous devez d'abord vous connecter
+    </Alert>
+    )
+}
+
+export {AlertError,AlertSuccess,AlertCn,AlertCnS,AlertCnss};
 
 

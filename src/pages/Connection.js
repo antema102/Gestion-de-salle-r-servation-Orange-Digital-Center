@@ -2,16 +2,18 @@ import '../assets/style/Connection.css';
 import logo_orange from '../assets/image/logo.jpg'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { AiOutlineUserAdd } from 'react-icons/ai'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AlertCn,AlertCnS} from './Alert.js'
+import { AlertCn, AlertCnS, AlertCnss } from './Alert.js'
 const Connection = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [AlertConnexion, setAlertConnexion] = useState(false)
-    const [AlertConnexionSucces,SetAlertConnexionSucces]=useState(false)
+    const [AlertConnexionSucces, SetAlertConnexionSucces] = useState(false)
+    const [AlertConnexions, setAlertConnexions] = useState(false);
     const navigate = useNavigate();
     let time;
+    let times;
 
     const handleOnSubmit = async (e) => {
         try {
@@ -38,34 +40,61 @@ const Connection = () => {
                 // Effacez le nom d'utilisateur et le mot de passe du formulaire
                 setUsername('');
                 setPassword('');
-
-                // Vous pouvez également effectuer une redirection ici si nécessaire
-                // Par exemple, redirigez l'utilisateur vers une autre page
-                // history.push('/salle'); // Assurez-vous d'importer useHistory depuis 'react-router-dom'
                 SetAlertConnexionSucces(true)
                 navigate('/acceuil');
             } else {
+                setAlertConnexions(false)
                 setAlertConnexion(true)
-                const errorData = await result.json();
-                console.error(errorData.message);
             }
         } catch (error) {
             console.log('error')
         }
     };
 
-    useEffect (()=>{
-        if(AlertConnexion){
-            time= setTimeout (()=>{
+    const isTokenExpired = (token) => {
+        try {
+            if (!token) {
+                return true; // Gérer le cas où le token est null
+            }
+            const tokenParts = token.split('.');
+            const parsedToken = JSON.parse(atob(tokenParts[1]));
+            const tokenExpiration = parsedToken.exp * 1000; // Convertir en millisecondes
+            return Date.now() >= tokenExpiration;
+        } catch (error) {
+            console.error(error);
+            return true; // Gérer les erreurs de décodage du token comme une expiration
+        }
+    };
+
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (isTokenExpired(token)) {
+            setAlertConnexions(true)
+        }
+    }, []);
+
+
+    useEffect(() => {
+
+        if (AlertConnexions) {
+            times = setTimeout(() => {
+                setAlertConnexions(false)
+            }, 5000)
+        }
+
+        if (AlertConnexion) {
+            time = setTimeout(() => {
                 setAlertConnexion(false)
-            },10000)
+            }, 10000)
         }
 
-        return() =>{
+        return () => {
             clearTimeout(time)
+            clearTimeout(times)
         }
 
-    },[AlertConnexion])
+    }, [AlertConnexion, AlertConnexions])
 
     return (
         <div className='background-gray'> {/* Ajoutez la classe background-gray ici */}
@@ -96,7 +125,7 @@ const Connection = () => {
                                         id="user"
                                         value={username}
                                         onChange={(e) => setUsername(e.target.value)}
-                                        required
+                                        placeholder='Utilisateur'
                                     />
                                 </div>
                             </div>
@@ -112,7 +141,7 @@ const Connection = () => {
                                         id="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        required
+                                        placeholder='Mot de passe'
                                     />
                                 </div>
                             </div>
@@ -123,16 +152,24 @@ const Connection = () => {
 
 
                             {
-                                AlertConnexionSucces &&(
-                                   < AlertCnS/>
+                                AlertConnexionSucces && (
+                                    < AlertCnS />
                                 )
                             }
+
 
                             {
                                 AlertConnexion && (
                                     <AlertCn />
                                 )
                             }
+
+                            {
+                                AlertConnexions && (
+                                    < AlertCnss />
+                                )
+                            }
+
                             <button type="button"
                                 className="btn custom-btn connection btn-block"
                                 onClick={handleOnSubmit}

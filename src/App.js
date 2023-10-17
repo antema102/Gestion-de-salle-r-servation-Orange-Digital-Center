@@ -13,7 +13,6 @@ import ReservationDetails from './pages/ReservationDetails';
 import Notfound from './pages/Notfound';
 import Connection from './pages/Connection.js';
 import Map from './pages/Map';
-import Test from './pages/Test';
 function App() {
     return (
         <BrowserRouter>
@@ -28,7 +27,6 @@ function App() {
                     <Route path='/reservation' element={<Reservation />} />
                     <Route path='/reservation/:id' element={<ReservationDetails />} />
                     <Route path='/map' element={<Map/>} />
-                    <Route path='/test' element={<Test/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

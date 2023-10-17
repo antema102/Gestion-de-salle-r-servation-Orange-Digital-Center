@@ -9,10 +9,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Salle = () => {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
+
 
 
   const onNextPage = () => {
@@ -60,38 +61,36 @@ const Salle = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (!token  || isTokenExpired(token)) {
+    if (!token || isTokenExpired(token)) {
       navigate('/connection');
     } else {
       fetchSalle(token);
     }
-    
-    
-    let errer404Timeout;
-    let successTimeout;
+    /*   let errer404Timeout;
+         let successTimeout;
+   
+       if (alert_error) {
+   
+         errer404Timeout = setTimeout(() => {
+           setAlert_error(false);
+         }, 10000);
+       }
+   
+       if (alert_succes) {
+         // Définir un délai de 5 secondes (5000 millisecondes) pour success
+         successTimeout = setTimeout(() => {
+           setAlert_succes(false);
+         }, 10000);
+       }
+   
+       // Nettoyer les délais lorsque le composant est démonté
+       return () => {
+         clearTimeout(errer404Timeout);
+         clearTimeout(successTimeout);
+       };*/
+  }, /*[alert_error, alert_succes]*/[navigate]);
 
-    if (alert_error) {
 
-      errer404Timeout = setTimeout(() => {
-        setAlert_error(false);
-      }, 10000);
-    }
-
-    if (alert_succes) {
-      // Définir un délai de 5 secondes (5000 millisecondes) pour success
-      successTimeout = setTimeout(() => {
-        setAlert_succes(false);
-      }, 10000);
-    }
-
-    // Nettoyer les délais lorsque le composant est démonté
-    return () => {
-      clearTimeout(errer404Timeout);
-      clearTimeout(successTimeout);
-    };
-  }, [alert_error, alert_succes,navigate]);
-
-  
   const isTokenExpired = (token) => {
     try {
       const parsedToken = JSON.parse(atob(token.split('.')[1]));
@@ -108,7 +107,7 @@ const Salle = () => {
       setLoading(true)
       const response = await fetch(`http://127.0.0.1:3001/salle`, {
         headers: {
-          Authorization : token,
+          Authorization: token,
         },
       });
       if (response.ok) {
@@ -233,7 +232,7 @@ const Salle = () => {
                           <button className='edit bg-light' data-toggle="modal" data-target="#edit" onClick={() => handleEdit(salles._id)} >
                             <BiMessageSquareEdit />
                           </button>
-                        { /* <button className='delete bg-light' onClick={() => handleDelete(salles._id)}> //COmmentatire bouton delete
+                          { /* <button className='delete bg-light' onClick={() => handleDelete(salles._id)}> //Commentatire bouton delete
                             <AiFillDelete />
                     </button>  */}
                         </td>
@@ -242,7 +241,7 @@ const Salle = () => {
                 </tbody>
               </table>
 
-          {  /*  <Pagination commentaire pagination
+              {  /*  <Pagination commentaire pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onNextPage={onNextPage}
@@ -262,7 +261,7 @@ const Salle = () => {
 
         </div>
         <div className="d-flex mb-3 mr-3 ">
-        { /* <div className="p-2 ml-auto  ">
+          { /* <div className="p-2 ml-auto  ">
             <button type="button" className="btn custom-btn ajouter" data-toggle="modal" data-target="#myModal">
               Ajouter
             </button> commenter bouton ajouter
