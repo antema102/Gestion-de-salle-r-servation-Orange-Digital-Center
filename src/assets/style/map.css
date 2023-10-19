@@ -227,3 +227,8 @@
   stroke-miterlimit: 50;
  
  }
+
+ svg#Calque_1{
+  border: 1px solid #858585;
+  padding: 5px;
+ }

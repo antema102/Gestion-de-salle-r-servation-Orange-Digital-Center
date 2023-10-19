@@ -214,7 +214,7 @@ const ReservationDetails = () => {
                             <table className="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Date de rendez-vous</th>
+                                        <th>Date de reservation</th>
                                         <th>Heure de debut</th>
                                         <th>Heure de fin</th>
                                         <th>Trigramme</th>

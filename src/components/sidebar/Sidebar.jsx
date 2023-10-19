@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './sidebar.scss';
-import logo_orange from '../../assets/image/logo_orange.jpg';
+import logo_orange from '../../assets/image/logo.jpg';
 
 const sidebarNavItems = [
 
@@ -37,6 +37,8 @@ const Sidebar = () => {
     const sidebarRef = useRef();
     const indicatorRef = useRef();
     const location = useLocation();
+    const [isSidebarHovered, setIsSidebarHovered] = useState(false);
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -53,9 +55,13 @@ const Sidebar = () => {
         setActiveIndex(curPath.length === 0 ? 0 : activeItem);
     }, [location]);
 
-    return <div className='sidebar'>
+    return <div
+    className="sidebar"
+    onMouseEnter={() => setIsSidebarHovered(true)}
+    onMouseLeave={() => setIsSidebarHovered(false)}
+  >
         <div className="sidebar__logo">
-        <img src={logo_orange} alt='Orange digital center'width='200px'/>
+        <img src={logo_orange} alt='Orange digital center'width='100px'/>
 
         </div>
         <div ref={sidebarRef} className="sidebar__menu">
@@ -73,7 +79,7 @@ const Sidebar = () => {
                             <div className="sidebar__menu__item__icon">
                                 {item.icon}
                             </div>
-                            <div className="sidebar__menu__item__text">
+                            <div className={`sidebar__menu__item__text ${isSidebarHovered ? 'show' : ''}`}>
                                 {item.display}
                             </div>
                         </div>

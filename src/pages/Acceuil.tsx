@@ -19,8 +19,9 @@ function exportToExcel(reservationData, salleData) {
   worksheet.columns = [
     { header: 'Salle', key: 'nomSalle' },
     { header: 'Trigramme', key: 'trigram' },
-    { header: 'Début', key: 'start' },
-    { header: 'Fin', key: 'end' },
+    { header: 'Date de reservation', key: 'date' },
+    { header: "Debut de l'heure de reservation", key: 'start' },
+    { header: "Fin de l'heure de reservation", key: 'end' },
     { header: 'Description', key: 'description' },
     // Ajoutez d'autres en-têtes de colonne au besoin
   ];
@@ -31,8 +32,15 @@ function exportToExcel(reservationData, salleData) {
     worksheet.addRow({
       nomSalle: salleCorrespondante ? salleCorrespondante.title : '', // Le nom de la salle correspondante
       trigram: reservation.title,
-      start: reservation.start.toLocaleString(),
-      end: reservation.end.toLocaleString(),
+      date:reservation.date_rdv.toLocaleString(),
+      start: reservation.start.toLocaleString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+    }),
+      end: reservation.end.toLocaleString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+    }),
       description: reservation.description,
       // Ajoutez d'autres données au besoin
     });
@@ -107,6 +115,7 @@ function Acceuil() {
         event_id: reservation._id,
         title: reservation.trigram,
         description: reservation.description,
+        date_rdv:new Date(reservation.date_rdv),
         start: new Date(reservation.heur_debut),
         end: new Date(reservation.heur_fin),
         admin_id: reservation.salleID,
@@ -153,6 +162,7 @@ function Acceuil() {
       })
         .then((response) => {
           if (response.ok) {
+            alert("  Reservation supprimée avec succès")
             resolve(eventId);
           } else {
             reject('Échec de la suppression de l\'événement');
@@ -209,9 +219,11 @@ function Acceuil() {
         })
           .then((response) => {
             if (response.ok) {
+              alert("Reservation ajouter avec succes")
               fetchReservation()
             } else {
-              reject('Échec de la mise à jour de l\'événement');
+              alert(" La salle est réservée dans le délai que vous avez ajouté, veuillez changer.")
+              reject(e);
             }
           })
           .catch((error) => {
@@ -272,6 +284,13 @@ function Acceuil() {
               step: 60
             }}
 
+            day={{
+              weekDays: [2, 3, 4, 5, 6],
+              startHour: 8,
+              endHour: 18,
+              step: 60
+            }}
+
             translations={
               {
                 navigation: {
@@ -300,7 +319,7 @@ function Acceuil() {
             ref={calendarRef}
             events={reservation}
             resources={salle}
-
+            view="day"
             resourceFields={{
               idField: "admin_id",
               textField: "title",
