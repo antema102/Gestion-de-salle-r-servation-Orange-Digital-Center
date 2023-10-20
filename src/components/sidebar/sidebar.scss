@@ -121,3 +121,38 @@
     opacity: 1;
 
 }
+
+@media (max-width: 376px) {
+
+    .sidebar {
+        width: 60px;
+        height: 100vh;
+        &__logo {
+            display: none;
+    
+        }
+        &__menu{
+            &__item{
+                height: 125px;
+                padding: 100px 0px 0px 15px;
+            }
+            &__indicator {
+                position: absolute;
+                left: 50%;
+                width: 0;
+
+            }
+            
+        }
+    
+    }
+    .sidebar:hover {
+        width: 60px;
+    
+    }
+    .show {
+        opacity: 0;
+    
+    }
+    
+}

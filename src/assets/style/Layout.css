@@ -35,16 +35,27 @@
 
 @media (min-width: 1200px) {
     .principale {
+        padding: 40px 0px 10px 11%;
+       
+    }
+}
+
+@media (min-width: 1400px) {
+    .principale {
         padding: 40px 0px 10px 9%;
     }
 }
 
 @media (max-width: 376px) {
-
+    
     .principale {
-        padding: 40px 0px 10px 25%;
+        padding: 10px 0px 0px 0px;
+        margin-left: 65px;
     }
-   
+    .sidebar:hover+.principale {
+        margin-left: 65px;
+    
+    }
 
 }
 
